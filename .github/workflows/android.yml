@@ -14,11 +14,14 @@ jobs:
     name: "Build ${{matrix.arch}}"
 
     runs-on: ubuntu-latest
-    env:
-      ANDROID_NDK_HOME: "${ANDROID_SDK_ROOT}/ndk-bundle"
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r27
 
       - name: Setup
         run: |
