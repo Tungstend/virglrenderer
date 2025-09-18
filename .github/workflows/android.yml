@@ -49,7 +49,7 @@ jobs:
           ninja -C "build-android-${{matrix.arch}}" install
           cp "build-android-${{matrix.arch}}/vtest/libvirgl_test_server.so" /tmp/build/lib/
       - name: Upload libraries
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: build_${{matrix.arch}}
           path: /tmp/build
